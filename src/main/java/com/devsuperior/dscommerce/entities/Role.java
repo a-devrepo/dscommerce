@@ -1,10 +1,15 @@
 package com.devsuperior.dscommerce.entities;
 
+import org.springframework.security.core.GrantedAuthority;
+
 import javax.persistence.*;
+import java.io.Serial;
 
 @Entity
 @Table(name = "tb_role")
-public class Role {
+public class Role implements GrantedAuthority {
+  @Serial
+  private static final long serialVersionUID = 1L;
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
@@ -26,6 +31,7 @@ public class Role {
     this.id = id;
   }
 
+  @Override
   public String getAuthority() {
     return authority;
   }
