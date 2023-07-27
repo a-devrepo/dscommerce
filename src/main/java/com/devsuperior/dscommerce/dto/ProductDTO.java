@@ -4,10 +4,7 @@ import com.devsuperior.dscommerce.entities.Category;
 import com.devsuperior.dscommerce.entities.Product;
 import java.util.ArrayList;
 import java.util.List;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Positive;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 
 public class ProductDTO {
   private Long id;
@@ -20,6 +17,7 @@ public class ProductDTO {
   @NotBlank(message = "Campo obrigatório")
   private String description;
 
+  @NotNull(message = "Campo obrigatório")
   @Positive(message = "O preço deve ser positivo")
   private Double price;
 
